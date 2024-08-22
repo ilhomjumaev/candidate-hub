@@ -1,0 +1,9 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: candidate-hub
+  config:
+    import: optional:file:.env[.properties]
+  profiles:
+    active: ${APP_PROFILE:dev}
