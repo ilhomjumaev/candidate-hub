@@ -1,5 +1,6 @@
 package uz.ace.candidate.hub.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class CandidateController {
     private final CandidateService candidateService;
 
     @PostMapping("/candidates")
-    public Mono<CandidateDTO> saveCandidate(@RequestBody CandidateDTO candidateDTO) {
+    public Mono<CandidateDTO> saveCandidate(@RequestBody @Valid CandidateDTO candidateDTO) {
         log.info("REST request to Create/Update candidate({})", candidateDTO);
         return candidateService.saveCandidate(candidateDTO);
     }

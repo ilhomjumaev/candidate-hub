@@ -22,14 +22,14 @@ public class CandidateMapper {
         if (candidate == null) {
             candidate = Candidate.builder().build();
 
-            candidate.setEmail(candidateDTO.email());
+            candidate.setEmail(candidateDTO.getEmail());
         }
-        candidate.setFirstName(candidateDTO.firstName());
-        candidate.setLastName(candidateDTO.lastName());
-        candidate.setPhoneNumber(candidateDTO.phoneNumber());
-        candidate.setLinkedinUrl(candidateDTO.linkedinUrl());
-        candidate.setGithubUrl(candidateDTO.githubUrl());
-        candidate.setComment(candidateDTO.comment());
+        candidate.setFirstName(candidateDTO.getFirstName());
+        candidate.setLastName(candidateDTO.getLastName());
+        candidate.setPhoneNumber(candidateDTO.getPhoneNumber());
+        candidate.setLinkedinUrl(candidateDTO.getLinkedinUrl());
+        candidate.setGithubUrl(candidateDTO.getGithubUrl());
+        candidate.setComment(candidateDTO.getComment());
 
         return candidate;
     }

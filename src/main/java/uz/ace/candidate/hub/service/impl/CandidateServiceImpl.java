@@ -18,13 +18,13 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Override
     public Mono<CandidateDTO> saveCandidate(CandidateDTO candidateDTO) {
-        return candidateRepository.findCandidateByEmail(candidateDTO.email())
+        return candidateRepository.findCandidateByEmail(candidateDTO.getEmail())
                 .flatMap(candidate -> updateCandidate(candidate, candidateDTO)
                         .map(CandidateMapper::candidateDTO))
                 .switchIfEmpty(
                         Mono.just(CandidateDTO.builder().build())
                                 .flatMap(existCandidate -> {
-                                            if (existCandidate.email() == null) {
+                                            if (existCandidate.getEmail() == null) {
                                                 return createCandidate(candidateDTO)
                                                         .map(CandidateMapper::candidateDTO);
                                             }
