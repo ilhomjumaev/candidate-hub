@@ -1,0 +1,8 @@
+databaseChangeLog:
+  # Initial schema including
+  - include:
+      file: create-db.sql
+      relativeToChangelogFile: true
+  - include:
+      file: create-table.yaml
+      relativeToChangelogFile: true

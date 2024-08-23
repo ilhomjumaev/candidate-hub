@@ -1,0 +1,63 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-table
+      author: candidate-hub
+      changes:
+        - sql:
+            sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+        - createTable:
+            schema: public
+            tableName: candidate
+            columns:
+              - column:
+                  name: id
+                  type: uuid DEFAULT uuid_generate_v4()
+                  defaultValueComputed: uuid_generate_v4()
+                  generationType: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: version
+                  type: bigint
+                  defaultValue: "1"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: modified_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted
+                  type: boolean
+                  defaultValue: "false"
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
+              - column:
+                  name: phone_number
+                  type: varchar(20)
+              - column:
+                  name: email
+                  type: varchar(20)
+              - column:
+                  name: linkedin_url
+                  type: varchar(255)
+              - column:
+                  name: github_url
+                  type: varchar(255)
+              - column:
+                  name: comment
+                  type: varchar(4000)

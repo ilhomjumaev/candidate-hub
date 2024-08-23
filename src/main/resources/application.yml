@@ -7,3 +7,12 @@ spring:
     import: optional:file:.env[.properties]
   profiles:
     active: ${APP_PROFILE:dev}
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:ch}
+    username: ${DB_USERNAME:ch}
+    password: ${DB_PASSWORD:ch}
+  liquibase:
+    change-log: classpath:/db/changelog.yaml
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:ch}
+    user: ${DB_USERNAME:ch}
+    password: ${DB_PASSWORD:ch}
