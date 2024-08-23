@@ -7,6 +7,9 @@ import uz.ace.candidate.hub.domain.Candidate;
 
 import java.util.UUID;
 
+/**
+ * Reactive repository for the {@link Candidate} entity.
+ */
 @Repository
 public interface CandidateRepository extends R2dbcRepository<Candidate, UUID> {
     Mono<Candidate> findCandidateByEmail(String email);

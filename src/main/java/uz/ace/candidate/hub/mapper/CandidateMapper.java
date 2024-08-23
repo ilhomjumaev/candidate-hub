@@ -4,6 +4,9 @@ import lombok.experimental.UtilityClass;
 import uz.ace.candidate.hub.domain.Candidate;
 import uz.ace.candidate.hub.dto.CandidateDTO;
 
+/**
+ * Mapper class for the entity {@link Candidate} and dto {@link CandidateDTO}.
+ */
 @UtilityClass
 public class CandidateMapper {
     public CandidateDTO candidateDTO(Candidate candidate) {
